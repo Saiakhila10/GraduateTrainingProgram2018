@@ -2,7 +2,10 @@
 -- Submission by sai.akhila.potluri@accenture.com
 
 1)select the employee with top 3 salaries
-
+select * from employee order by salary desc LIMIT 3;
+A142 TARA CUMMINGS D04 99475 A187
+A132 PAUL VINCET D01 94791 A120
+A128 ADAM WAYNE D05 94324 A165
 
 2)select the employee who have least salary
 select name,salary from employee where salary=(select min(salary) from employee);
@@ -38,6 +41,7 @@ select max(salary),name from employee e inner join dept d on e.dept_id=d.dept_id
 94324 ADAM WAYNE
 
 8)Select the Employee in product depatment who has the least salary
+select min(salary),e.name from employee e inner join dept d on e.dept_id=d.dept_id where manager_name='PRODUCT'; 
 
 
 
@@ -81,8 +85,8 @@ select max(salary),d.dept_name from employee e inner join dept d on e.emp_id=d.d
 169981 FINANCE
 
 15)Select the department which spends the least with Dept id and Dept manager name
-
-
+select * from dept d inner join (select min(sal),dept_id from (select sum(salary) as sal,dept_id from employee group by dept_id)) as e on e.dept_id=d.dept_id; 
+D04 INSURANCE ROBERT SWIFT 155740 D04
 
 16)select the count of employees in each department
 select count(*),dept_id from employees group by dept_id;
@@ -102,7 +106,8 @@ select count(*) from employee where dept_id='D04' group by dept_id;
 3
 
 19)Select all department details of the Department with Maximum Employees
-
+select * from dept d inner join(select max(e),dept_id from(select count(e_id) as e,dept_id from employee group by dept_id)as b on d.dept_id=b.dept_id;
+D02 COMMUNICATIONS ADAM JUSTIN 6 D02
 
 20)Select the Employees who has Tim cook as their manager
 select e.e_id,e.name from employee e inner join d on d.dept_id=e.dept_id where manager_name='TIM ARCHER';
