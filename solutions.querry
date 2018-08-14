@@ -1,0 +1,80 @@
+Assignment 13 july 2018
+submitted by sai.akhila.potluri@accenture.com
+
+1) What are the most important sql commands
+create,alter,drop,insert,update,delete,select
+
+2)What is an Entity,Attribute,Record,operator
+entity-a real world object.
+attribute-behavioural functionalities of entity.
+record-It is an entry made containing two or more values.
+operator-it is a character used in sql statements to perform various operations such as arithematic and comparision operations.
+
+3)Why is it essential to select columns in a resultset instead of doing a select *.What is the use of distinct
+Selecting all the columns will be time consuming than selecting all the columns needed,to reduce complexity and reduces performance. 
+distinct-It removes the duplicates.
+
+4)What is the difference between Where and Having
+where is used for flitering rows and it applies on each and every row.aggregate functions cannot be used for filtering.
+having is applied on groups,it can be used only if there is a groupby in the querry.aggregate functions can be used.
+
+5)What are the different operators used in Where.difference between And not and OR
+Logical operator
+arithematic operator
+conditional operator
+And-If they are two conditions given,both the conditions should satisfy then only it will fetch the related rows.
+not-apart from the condition specified in the querry,will fetch  all other records.
+Or-either of the condition should satify,then it will fetch the related rows.
+
+6)what is the difference between Group by and order by when do we use them
+group by-It groups the similar data in a table.it is followed by where clause.
+order by-It is used to sort the data in ascending or descending order.
+
+7)What is an aggregate function.Specify the different types of aggregate functions
+aggregate function is the one in which the values of the rows are grouped together and gives the single value.
+min,max,sum,avg,count
+
+8)What is a constraint.What is a primary key,Foreign key?Why do we use them
+constraint is a rule or restriction given to a querry.
+primary key-By providing this key to a specific column name it uniqely identifies each row in a table.It does not allows duplicate and null values.
+foreign key-It referes to the primary key column of another table.This key allows both null and duplicate values.
+
+9)What is an index?Why do we use indexing?
+It is a datastructure which is used to quickly access the date in the table.When we have a large table then by giving the index number we will get the details of that particular index and can fetch the rows easily.
+
+10)What is an view.
+view is a virtual table which is created from one or more tables.It also have rows and columns as in real table.
+
+
+11)Specify the different type of joins with an example?
+
+employee_Id   employee_Name  dept_id                   dept_id   dept_name             
+  100            akhila        1                        1        communication
+  101            swathi        2                        2        HR
+  102            teja          2                        3        finance
+  104           sindhu        4
+inner join
+employee_Id   employee_Name  dept_id     dept_name             
+  100            akhila        1          communication
+  101            swathi        2              HR
+  102            teja          2              HR
+  
+outer join-right outer join
+employee_Id   employee_Name  dept_id      dept_name             
+  100            akhila        1           communication
+  101            swathi        2                 HR
+  102            teja          2                 HR
+                               3             finance
+ left outer join
+  employee_id    employee_name dept_id     dept_name
+  100            akhila        1           communication
+  101            swathi        2                 HR
+  102            teja          2                 HR
+  104            sindhu        4
+full outer join
+  employee_id    employee_name dept_id     dept_name
+  100            akhila        1           communication
+  101            swathi        2                 HR
+  102            teja          2                 HR
+  104            sindhu        4
+                               3            finance
