@@ -1,0 +1,242 @@
+problems 10th sep 2018
+submission by sao.akhila.potluri@accenture.com
+
+
+1)You are asked to ensure that the first and last names of people begin with a capital letter in their passports. For example, alison heck should be capitalised correctly as Alison Heck.
+alison heck => Alison Heck
+Given a full name, your task is to capitalize the name appropriately.
+Input Format:-
+A single line of input containing the full name, S .
+Constraints:-
+
+* 0<len(S)<1000
+* The string consists of alphanumeric characters and spaces.
+Note: in a word only the first character is capitalized. Example 12abc when capitalized remains 12abc.
+Output Format:-Print the capitalized string, S .
+Sample Input
+------------
+chris alan
+Sample Output
+-------------
+Chris Alan
+
+name=input("enter full name")
+try:
+ if(len(name)>0 and len(name)<1000):
+  a=name.split(" ")
+  b=[]
+  for i in a:
+      b.append(i.capitalize())
+      cap_name=(" ".join(b))
+  print(cap_name)
+
+except Exception as error:
+ print("please enter name",error)
+ 
+2) You have a record of  students. Each record contains the student's name, and their percent marks in Maths, Physics and Chemistry. The marks can be floating values. The user enters some integer  followed by the names and marks for students. You are required to save the record in a dictionary data type. The user then enters a student's name. Output the average percentage marks obtained by that student, correct to two decimal places.
+Input Format:-
+The first line contains the integer N, the number of students. The next  lines contains the name and marks obtained by that student separated by a space. The final line contains the name of a particular student previously listed.
+Constraints:-
+* 2<=N<=1* 0<=MARKS<=100
+Output Format:-
+Print one line: The average of the marks obtained by the particular student correct to 2 decimal places.
+Sample Input 1
+--------------
+3
+Krishna 67 68 69
+Arjun 70 98 63
+Malika 52 56 60
+Malika
+Sample Output 1
+---------------
+56.00
+
+stud_details={}
+count=input("enter the student count:")
+for i in range(int(count)):
+ values=input("enter students and marks:")
+ m=values.split(" ")
+ key=m.pop(0)
+ mark=[]
+ for j in range(len(m)):
+    mark.append(int(m[j]))
+    stud_details[key]=mark
+fetch=input("enter the stud name for avg")
+avg=sum(stud_details[fetch])/len(stud_details[fetch])
+print(avg)
+
+
+3)Exceptions
+----------
+Errors detected during execution are called exceptions.
+Examples:
+ZeroDivisionError 
+This error is raised when the second argument of a division or modulo operation is zero.
+>>> a = '1'
+>>> b = '0'
+>>> print int(a) / int(b)
+>>> ZeroDivisionError: integer division or modulo by zero
+ValueError 
+This error is raised when a built-in operation or function receives an argument that has the right type but an inappropriate value.
+>>> a = '1'
+>>> b = '#'
+>>> print int(a) / int(b)
+>>> ValueError: invalid literal for int() with base 10: '#'
+Handling Exceptions:-
+The statements try and except can be used to handle selected exceptions. A try statement may have more than one except clause to specify handlers for different exceptions.
+Task:-
+You are given two values a and b . 
+Perform integer division and print a/b .
+Input Format:-
+the first line contains T , the number of test cases. 
+The next T lines each contain the space separated values of a and b .
+Constraints:-
+* 0 < T < 10
+Output Format
+Print the value of . 
+In the case of ZeroDivisionError or ValueError, print the error code.
+Sample Input
+3
+1 0
+2 $
+3 1
+Sample Output
+Error Code: integer division or modulo by zero
+Error Code: invalid literal for int() with base 10: '$'
+3
+
+def exc_ha():
+  try:
+   print int(a)/int(b)
+  except Exception as error:
+   print(error)
+count=int(raw_input("enter the count"))
+for i in range(count):
+ a=raw_input("enter the value of a")
+ b=raw_input("enter the value of b")
+ exc_ha()
+ 
+ 
+ 4)Consider a list (list = []). You can perform the following commands:
+insert i e: Insert integer e at position i.
+print: Print the list.
+remove e: Delete the first occurrence of integer e.
+append e: Insert integer e at the end of the list.
+sort: Sort the list.
+pop: Pop the last element from the list.
+reverse: Reverse the list.
+Initialize your list and read in the value of  followed by  lines of commands where each command will be of the 7 types listed above. Iterate through each command in order and perform the corresponding operation on your list.
+Input Format:-
+The first line contains an integer, n , denoting the number of commands. 
+Each line i of the n  subsequent lines contains one of the commands described above.
+Constraints:-
+* The elements added to the list must be integers.
+Output Format:-
+For each command of type print, print the list on a new line.
+Sample Input
+------------
+12
+insert 0 5
+insert 1 10
+insert 0 6
+print
+remove 6
+append 9
+append 1
+sort
+print
+pop
+reverse
+print
+Sample Output
+-------------
+[6, 5, 10]
+[1, 5, 9, 10]
+[9, 5, 1]
+
+
+dict={}
+l=[]
+n=input("Enter the no of commands")
+for i in range(n):
+      s=raw_input();
+      l1=s.split(" ")
+      dict[i]=l1
+for i in range(n):
+      if(dict[i][0]=="insert"):
+           l.insert(int(dict[i][1]),int(dict[i][2]))
+      elif(dict[i][0]=="print"):
+           print l
+      elif(dict[i][0]=="remove"):
+           l.remove(int(dict[i][1]))
+      elif(dict[i][0]=="append"):
+           l.append(int(dict[i][1]))
+      elif(dict[i][0]=="sort"):
+           l.sort()
+      elif(dict[i][0]=="pop"):
+           l.pop(len(l)-1)
+      elif(dict[i][0]=="reverse"):
+           l.reverse()
+          
+ 6)You are given two sets, A and B . 
+Your job is to find whether set A is a subset of set B .
+If set A is subset of set B , print True.
+If set A is not a subset of set B , print False.
+Input Format:-
+The first line will contain the number of test cases, T . 
+The first line of each test case contains the number of elements in set A .
+The second line of each test case contains the space separated elements of set A .
+The third line of each test case contains the number of elements in set B .
+The fourth line of each test case contains the space separated elements of set B .
+Constraints:-
+* 0 < T < 5
+* 0 <Number of elements in each set < 10
+Output Format:-
+Output True or False for each test case on separate lines.
+Sample Input
+------------
+3
+5
+1 2 3 5 6
+9
+9 8 5 6 3 2 1 4 7
+1
+2
+5
+3 6 5 4 1
+7
+1 2 3 5 6 8 9
+3
+9 8 2
+Sample Output
+-------------
+True 
+False
+False
+Explanation
+-----------Test Case 01 Explanation
+Set A = {1 2 3 5 6} 
+Set B = {9 8 5 6 3 2 1 4 7} 
+All the elements of set A are elements of set B. 
+Hence, set A is a subset of set B.
+
+tc=int(input("enter the number of test cases:"))
+list_set = []
+for i in range(tc):
+    no = int(input("enter the number of elements for set 1:"))
+    ele = input("enter the elements:")
+    ele_list = ele.split(" ")
+    if no == len(ele_list):
+     no1 = int(input("enter the number of elements for set 2:"))
+     ele1 = input("enter the elements:")
+     ele_list1 = ele1.split(" ")
+     if no1 == len(ele_list1):
+       print(ele_list)
+       print(ele_list1)
+       list_set.append(set(ele_list).issubset(set(ele_list1)))
+     else:
+       print("enter valid numbers")
+    else:
+      print("enter valid numbers")
+for k in list_set:
+    print(k)
